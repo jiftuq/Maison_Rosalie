@@ -123,7 +123,6 @@ a {
 
 .nav-brand {
   display: flex;
-  align-items: center;
   gap: 16px;
 }
 
@@ -970,4 +969,16 @@ a.contact-info-link:focus-visible {
   background: inherit;
   filter: blur(1.3px);
   z-index: -1;
+}
+
+
+/* -----------Recipes Cards -------------- */
+.recipes{
+  display: flex;
+justify-content: space-between;
+margin-top: 20px;
+}
+.card-recipe{
+text-align: center;
+align-items: center;
 }
