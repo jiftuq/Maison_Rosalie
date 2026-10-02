@@ -11,3 +11,4 @@ const DB_TYPE = "mysql";
 
 // racine de notre site pour PHP
 const RACINE_PATH = __DIR__;
+const BASE_URL = "/public/";
