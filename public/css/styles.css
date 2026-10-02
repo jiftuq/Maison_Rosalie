@@ -588,6 +588,7 @@ a {
 
 .apropos_hero .hero_description {
   line-height: 1.7;
+  text-align: center;
 }
 
 .apropos_hero .hero_description + .hero_description {
@@ -596,9 +597,11 @@ a {
 
 .apropos_subtitle {
   margin-bottom: 40px;
-  font-size: 18px;
+  font-size: 24px;
+  font-weight: bold;
   font-weight: 400;
   letter-spacing: 0.08em;
+  text-align: center;
 }
 
 .apropos_top {
@@ -767,6 +770,7 @@ a {
   color: var(--text-primary);
 }
 
+
 .contact-title {
   margin-bottom: 24px;
   font-family: "Bodoni Moda", serif;
@@ -934,4 +938,23 @@ a.contact-info-link:focus-visible {
   .contact-form-section {
     padding-block: 40px 72px;
   }
+}
+
+.apropos_hero {
+  padding: 80px 24px 120px;
+  background-image: url("../images/apropos/apropos-background.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--text-primary);
+  isolation: isolate;          
+}
+
+/* photo floue */                
+.apropos_hero::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  background: inherit;
+  filter: blur(1.3px);
+  z-index: -1;
 }
