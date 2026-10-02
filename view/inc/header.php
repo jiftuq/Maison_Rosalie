@@ -94,30 +94,14 @@
         </div>
         <ul class="nav-list" id="main-menu">
           <li class="nav-item">
-<<<<<<< HEAD
-            <a class="nav-link" href="/">Accueil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="?page=recettes">Recettes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="?page=apropos">À propos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="?page=contact">Contact</a>
-=======
             <a class="nav-link" href="?page=accueil">Accueil</a>
           </li>
         
           <li class="nav_item"><a class="nav-link" href="?page=recettes">Recettes</a></li>
->>>>>>> 85f0970923b3d817668cfbea5eee1467a990a7f5
           </li>
           <li class="nav_item"><a class="nav-link" href="?page=apropos">À propos</a></li>
 
-<<<<<<< HEAD
-=======
           <li class="nav_item"><a class="nav-link" href="?page=contact">Contact</a></li>
->>>>>>> 85f0970923b3d817668cfbea5eee1467a990a7f5
         </ul>
       </nav>
     </div>
