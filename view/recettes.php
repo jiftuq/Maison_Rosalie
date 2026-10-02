@@ -11,12 +11,17 @@ require_once __DIR__ . "/inc/header.php";
 <a href=""><img src="images/cards/card-orange.png" alt=""></a>
 
 </div>
+
+<div class="card-recipe"><h3>La Praline Cerisette</h3>
+<a href=""><img src="images/cards/card-cherry.png" alt=""></a>
+</div>
 <div class="card-recipe"><h3>La Praline Citronnelle</h3>
 <a href=""><img src="images/cards/card-lemon.png" alt=""></a>
 
+
 </div>
 <div class="card-recipe"><h3>La Praline Cerisette</h3>
-<a href=""><img src="images/cards/card-cherry.png" alt=""></a>
+<a href=""><img src="images/cards/card-raspberry.png" alt=""></a>
 
 </div>
 </section>

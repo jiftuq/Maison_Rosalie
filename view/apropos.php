@@ -3,11 +3,7 @@ require_once __DIR__ . "/inc/header.php";
 ?>
 
 <main>
-    <section class="header">
-        <div class="container">
-            <h1 class="apropos_title">A propos de Maison Rosalie</h1>
-        </div>
-    </section>
+
 
     <section class="hero apropos_hero">
         <div class="hero_content">
