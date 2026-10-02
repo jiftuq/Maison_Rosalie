@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . "/inc/header.php";
 ?>
+<<<<<<< HEAD
 
 <main class="contact">
 
@@ -86,3 +87,8 @@ require_once __DIR__ . "/inc/header.php";
 <?php
 require_once __DIR__ . "/inc/footer.php";
 ?>
+=======
+<?php
+require_once __DIR__ . "/inc/footer.php";
+?>
+>>>>>>> 85f0970923b3d817668cfbea5eee1467a990a7f5
