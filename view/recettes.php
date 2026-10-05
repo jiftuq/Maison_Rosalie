@@ -4,38 +4,29 @@ require_once __DIR__ . "/inc/header.php";
 <main>
 
 <div class="container">
-            <h1 class="apropos_title">Recette de Maison Rosalie</h1>
+            <h1 class="apropos_title">Recettes de Maison Rosalie</h1>
 
 <section class="recipes">
-    <div class="card-recipe"><h3>La Praline Orangette</h3>
-<a href=""><img src="images/cards/card-orange.png" alt=""></a>
+
+
+<?php foreach ($recipes as $recipe): ?>
+    <div class="card-recipe">
+        <h3 class="card-title" ><?= htmlspecialchars($recipe->getTitle()) ?></h3>
+        <a href="?page=recetteDetails&slug=<?= urlencode($recipe->getSlug()) ?>">
+
+<img class="card-img" src="images/cards/<?= htmlspecialchars($recipe->getMainImage())?>"
+
+    alt="<?= htmlspecialchars($recipe->getTitle()) ?>"
+
+>
+</a>
 
 </div>
-
-<div class="card-recipe"><h3>La Praline Cerisette</h3>
-<a href=""><img src="images/cards/card-cherry.png" alt=""></a>
-</div>
-<div class="card-recipe"><h3>La Praline Citronnelle</h3>
-<a href=""><img src="images/cards/card-lemon.png" alt=""></a>
-
-
-</div>
-<div class="card-recipe"><h3>La Praline Cerisette</h3>
-<a href=""><img src="images/cards/card-raspberry.png" alt=""></a>
-
-</div>
+<?php endforeach; ?>
 </section>
 
-
-
-
-
-
-
-
         </div>
-
-
+       
 </main>
 <?php
 require_once __DIR__ . "/inc/footer.php";
