@@ -18,7 +18,7 @@ class RecipeMapping extends AbstractMapping
     private string $difficulty = '';
     
     // getters and setters
-    public function geId(): ?int
+    public function getId():?int
     {
         return $this->id;
     }
@@ -68,4 +68,7 @@ public function setMainImage(string $main_image): void
 {
     $this->main_image = $main_image;
 }
+
+
+
 }

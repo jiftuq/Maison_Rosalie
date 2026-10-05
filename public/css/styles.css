@@ -1100,3 +1100,10 @@ a.contact-info-link:focus-visible {
   margin-left: 10px;
 }
 
+.ingredients{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+}
+.card{
+
+}

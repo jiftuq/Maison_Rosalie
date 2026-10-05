@@ -1,7 +1,9 @@
 <?php
 // chemin vers les dépendances
 use model\manager\RecipeManager;
+use model\manager\IngredientsManager;
 $recipeManager = new RecipeManager($connectPDO);
+$ingredientsManager = new IngredientsManager($connectPDO);
 $page = $_GET['page']?? 'accueil';
 if ($page === 'accueil') {
 
@@ -19,22 +21,28 @@ elseif ($page === 'recettes') {
     require RACINE_PATH . '/view/recettes.php';
     exit;
 }
- elseif($page==='recetteDetails'){
+elseif ($page === 'recetteDetails') {
+
     if (!isset($_GET['slug'])) {
         http_response_code(404);
         require RACINE_PATH . '/view/404.php';
         exit;
     }
-       if (isset($_GET['slug'])) {
-        $recetteDetails = $recipeManager->getRecipeBySlug($_GET['slug']);
-        if ($recetteDetails === null) {
-            http_response_code(404);
-            require RACINE_PATH . '/view/404.php';
-            exit;
-        }
-   
-        require RACINE_PATH . '/view/recetteDetails.php';
+
+    $recetteDetails = $recipeManager->getRecipeBySlug($_GET['slug']);
+
+    if ($recetteDetails === null) {
+        http_response_code(404);
+        require RACINE_PATH . '/view/404.php';
         exit;
     }
+        $id = $recetteDetails->getId();
+        $ingredients = $ingredientsManager->getIngredientsByRecipeId($id);
+
+
+
+    require RACINE_PATH . '/view/recetteDetails.php';
+    exit;
+
             }
                 

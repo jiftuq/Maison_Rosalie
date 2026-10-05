@@ -33,22 +33,24 @@ require_once __DIR__ . "/inc/header.php";
 
     </div>
 
-<?php
-var_dump($recetteDetails)
-?>
-
-
 </section>
 <section class="recipe-description comments">
 
-<h1><?= htmlspecialchars($recipe->getTitle()) ?></h1>
-<p><?= nl2br(htmlspecialchars($recipe->getDescription())) ?></p>
-<img
-    src="<?= htmlspecialchars($recipe->getImage()) ?>"
-    alt="<?= htmlspecialchars($recipe->getTitle()) ?>"
->
-
 </section>
+<section class="recipe-description ">
+    <div class="container">
+<h2>Ingredients</h2>
+<div class="ingredients">
+<?php foreach ($ingredients as $ingredient): ?>
+    <div class="card">
+       <img src="images/ingridients/<?= htmlspecialchars($ingredient->getImgIngrigient() )?>" alt="">
+<p> <?= htmlspecialchars($ingredient->getName() )?> <?= htmlspecialchars($ingredient->getQuantity() )?> <?= htmlspecialchars($ingredient->getUnit())?>
+</div>
+<?php endforeach; ?>
+</div>
+</div>
+</section>
+
 </main>
 <?php
 require_once __DIR__ . "/inc/footer.php";

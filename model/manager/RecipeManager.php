@@ -46,19 +46,14 @@ public function getRecipeBySlug(string $slug):?RecipeMapping{
             WHERE slug = ?";
 
     $stmt = $this->connect->prepare($sql);
-
     $stmt->execute([$slug]);
-
     $recipe = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (empty($recipe)) {
         return null;
     }
-
     return new RecipeMapping($recipe);
 }
-
-
 
 
 }
