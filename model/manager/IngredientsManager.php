@@ -16,9 +16,9 @@ class IngredientsManager extends AbstractManager{
                 JOIN ingredients AS i ON i.id = ri.ingredient_id
                 WHERE ri.recipe_id = :id";
     
-        $query = $this->connect->prepare($sql);
-        $query->execute(['id' => $id]);
-        $rows = $query->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $this->connect->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $ingredients = [];
         foreach ($rows as $row) {
             $ingredients[] = new IngredientsMapping($row);

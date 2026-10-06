@@ -62,10 +62,10 @@ a {
 
   /* Backgroubds */
   --bg-main: rgba(250, 243, 227, 1);
-  --bg-dark-drown: rgba(67, 34, 5, 1);
+  --bg-dark-brown: rgba(67, 34, 5, 1);
 
   /* Typography Colors */
-  --text-primary: var(--bg-dark-drown);
+  --text-primary: var(--bg-dark-brown);
   /* Main body text */
   --text-secondary: rgba(237, 110, 0, 0.7);
   /* Titles */
@@ -75,7 +75,7 @@ a {
 
 .container {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1540px;
   margin-inline: auto;
   padding-inline: 125px;
 }
@@ -495,7 +495,7 @@ padding: 28px;
 /*-------FOOTER------------*/
 .footer {
   padding-block: 32px;
-  background-color: var(--bg-dark-drown);
+  background-color: var(--bg-dark-brown);
   color: var(--color-light-white);
   font-family: "Abyssinica SIL", serif;
 }
@@ -620,7 +620,7 @@ padding: 28px;
   bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
-  color: var(--bg-dark-drown);
+  color: var(--bg-dark-brown);
 }
 
 @media screen and (max-width: 768px) {
@@ -922,7 +922,7 @@ a.contact-info-link:focus-visible {
   min-width: 280px;
   padding: 10px 24px;
   border-radius: 20px;
-  background: var(--bg-dark-drown);
+  background: var(--bg-dark-brown);
   color: var(--color-white);
   font-size: 14px;
   letter-spacing: 0.04em;
@@ -988,13 +988,16 @@ a.contact-info-link:focus-visible {
 .recipes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 30px;
   margin: 40px 0;
 }
 
 .card-recipe {
+  display: flex;
+  flex-direction: column;
+text-align: center;
+  min-height: 280px;
   text-align: center;
-  padding: 10px;
   border-radius: 15px;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1008,20 +1011,43 @@ a.contact-info-link:focus-visible {
 
 .card-img {
   display: block;
-  width: 70%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin: 0 auto;
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
 }
 
 .card-title{
   color: var(--text-primary);
 }
 
+@media (max-width: 900px){
+  .recipes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 40px 0;
+  }
+  .card-img{
+    height: 300px;
+  }
+}
+@media (max-width: 600px) {
+  .recipes {
+      grid-template-columns: 1fr;
+  }
+
+  .card-img {
+      height: 220px;
+  }
+
+}
+
+.recipe-description{
+  margin-bottom: 20px;
+}
 .recipe-grid {
   display: grid;
-  grid-template-columns: 340px 370px 1fr;
+  grid-template-columns: 340px 330px 1fr;
   column-gap: 48px;
   align-items: start;
 }
@@ -1043,11 +1069,17 @@ a.contact-info-link:focus-visible {
 
 
 .recipe-inside-img {
-  display: block;
-  width: 315px;
+ display: block;
+  width: 100%;
   height: auto;
   margin-top: 75px;
-  margin-left: -10px;
+  margin-left: -10px; 
+}
+.recipe-img{
+  display: block;
+  width: 100%;
+  height: auto;
+
 }
 .recipe-content {
   position: relative;
@@ -1099,11 +1131,69 @@ a.contact-info-link:focus-visible {
   margin-top: -80px;
   margin-left: 10px;
 }
+.section-title{
+  font-size: 32px;
+}
+.line{
+  margin: 0 0 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.line::before,
+.line::after {
+  content: "";
+  height: 2px;
+  background: #48250f;
+  flex: 1;
+}
+
+.svg {
+  width: 72px;
+  height: 72px;
+}
+.ingredients-title {
+  margin: 0;
+}
 
 .ingredients{
 display: grid;
-grid-template-columns: repeat(2,1fr);
+grid-template-columns: repeat(2,383px);
+justify-content: center;
+align-items: center;
+row-gap: 30px;
 }
 .card{
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+/* --------------Steps------------- */
+.preparation {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
 
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.steps img {
+  margin-top: auto;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.step-num{
+  color:var(--text-secondary) ;
+  font-size: 20px;
+}
+.step-desc{
+  color: var(--text-primary);
+  font-size: 20px;
 }

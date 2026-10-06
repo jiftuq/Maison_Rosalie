@@ -10,9 +10,9 @@ class IngredientsMapping extends AbstractMapping
 {
     private ?int $id = null;
     private string $name = '';
-    private string $img_ingrigient = '';
-    private string $quantity= '';
-    private string $unit= '';
+    private string $img_ingredient = '';
+    private ?int $quantity= null;
+    private string $unit= "";
     // getters and setters
     public function getId(): ?int
     {
@@ -23,7 +23,7 @@ class IngredientsMapping extends AbstractMapping
         if($id<=0) throw new Exception("id doit être un entier positif");
         $this->id = $id;
     }
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -35,23 +35,23 @@ class IngredientsMapping extends AbstractMapping
         }
         $this->name = $name;
     }
-        public function getImgIngrigient(): string
+        public function getImgIngredient(): string
 {
-    return $this->img_ingrigient;
+    return $this->img_ingredient;
 }
 
-public function setImgIngrigient (string $img_ingrigient): void
+public function setImgIngredient (string $img_ingredient): void
 {
-    $this->img_ingrigient = $img_ingrigient;
+    $this->img_ingredient = $img_ingredient;
 }
 
 
-public function getQuantity(): string
+public function getQuantity(): ?int
 {
     return $this->quantity;
 }
 
-public function setQuantity(string $quantity): void
+public function setQuantity(int $quantity): void
 {
     $this->quantity = $quantity;
 }

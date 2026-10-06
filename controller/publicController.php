@@ -2,8 +2,12 @@
 // chemin vers les dépendances
 use model\manager\RecipeManager;
 use model\manager\IngredientsManager;
+use model\manager\StepsManager;
 $recipeManager = new RecipeManager($connectPDO);
 $ingredientsManager = new IngredientsManager($connectPDO);
+$stepsPrepManager=new StepsManager($connectPDO);
+
+
 $page = $_GET['page']?? 'accueil';
 if ($page === 'accueil') {
 
@@ -38,7 +42,7 @@ elseif ($page === 'recetteDetails') {
     }
         $id = $recetteDetails->getId();
         $ingredients = $ingredientsManager->getIngredientsByRecipeId($id);
-
+        $steps = $stepsPrepManager->getStepsById($id);
 
 
     require RACINE_PATH . '/view/recetteDetails.php';
