@@ -25,6 +25,17 @@ elseif ($page === 'recettes') {
     require RACINE_PATH . '/view/recettes.php';
     exit;
 }
+elseif ($page === 'inscription') {
+    $errors = [];
+    $success = false;
+
+    // traitement formulaire
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // TODO
+    }
+
+    require_once RACINE_PATH. '/view/inscription.php';
+}
 elseif ($page === 'recetteDetails') {
 
     if (!isset($_GET['slug'])) {
