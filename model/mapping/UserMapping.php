@@ -13,6 +13,7 @@ class UserMapping extends AbstractMapping
     private string $passwordHash = '';
     private string $role = 'user';
     private ?string $createdAt = null;
+    private ?string $generated_key = "";
 
     public function getId(): ?int
     {
@@ -62,4 +63,19 @@ class UserMapping extends AbstractMapping
     {
         $this->createdAt = $v;
     }
+    public function getGenetatedKey(): ?string
+    {
+        return $this->generated_key;
+    }
+    public function setGeneratedKey(string $generated_key): void
+    {
+        if(empty($generated_key)) {
+            $this->generated_key= uniqid('',true)."-".bin2hex(random_bytes(52));
+        }
+        else{
+            $this->generated_key = $generated_key;
+        }
+       
+    }
+
 }
