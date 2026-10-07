@@ -1,8 +1,9 @@
 <?php
-//model/mapping/RecipeMapping`.php
+// model/mapping/RecipeMapping.php
 
 declare(strict_types=1);
 namespace model\mapping;
+use Exception;
 use model\abstract\AbstractMapping;
 
 class RecipeMapping extends AbstractMapping
@@ -10,29 +11,95 @@ class RecipeMapping extends AbstractMapping
     private ?int $id = null;
     private string $title = '';
     private string $slug = '';
-
-    public function getId(): ?int
+    private string $description = '';
+    private string $main_image = '';
+    private  ?int $prep_time_minutes =null;
+    private ?int $cook_time_minutes = null;
+    private string $difficulty = '';
+    
+    // getters and setters
+    public function getId():?int
     {
         return $this->id;
     }
-    public function setId(int|string $v): void
+    public function setId(?int $id): void
     {
-        $this->id = (int) $v;
+        if($id<=0) throw new Exception("id doit être un entier positif");
+        $this->id = $id;
     }
     public function getTitle(): string
     {
         return $this->title;
     }
-    public function setTitle(string $v): void
+    public function setTitle(string $title): void
     {
-        $this->title = $v;
+        $title = htmlspecialchars(strip_tags(trim($title)));
+        if(strlen($title)<3 || strlen($title)>120){
+            throw new Exception("Le titre de la recette doit faire entre 3 et 120 caractères");
+        }
+        $this->title = $title;
     }
     public function getSlug(): string
     {
         return $this->slug;
     }
-    public function setSlug(string $v): void
+    public function setSlug(string $slug): void
     {
-        $this->slug = $v;
+        $slug = htmlspecialchars(strip_tags(trim($slug)));
+        if(strlen($slug)<3 || strlen($slug)>124){
+            throw new Exception("Le slug de l'article doit faire entre 3 et 120 caractères");
+        }
+        $this->slug = $slug;
     }
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+    public function setDescription(string $title): void
+    {
+     $this->description= $title;
+    }
+    public function getMainImage(): string
+{
+    return $this->main_image;
+}
+
+public function setMainImage(string $main_image): void
+{
+    $this->main_image = $main_image;
+}
+
+public function getPrepTimeMinutes(): ?int
+{
+    return $this->prep_time_minutes;
+}
+
+public function setPrepTimeMinutes(?int $prep_time_minutes): void
+{
+    $this->prep_time_minutes = $prep_time_minutes;
+}
+public function getDifficulty(): string
+{
+    return $this->difficulty;
+}
+
+public function setDifficulty(string $difficulty): void
+{
+    $this->difficulty = $difficulty;
+}
+public function getCookTimeMinutes(): ?int
+{
+    return $this->cook_time_minutes;
+}
+
+public function setCookTimeMinutes(?int $cook_time_minutes): void
+{
+    $this->cook_time_minutes = $cook_time_minutes;
+}
+public function formatCookingTime(?int $cook_time_minutes ):string{
+$hours=intdiv($cook_time_minutes,60);
+$min=$cook_time_minutes%60;
+$min=($min<10)?"0".$min:(string)$min;
+return $hours."h".$min;
+}
 }

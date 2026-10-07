@@ -3,9 +3,9 @@ require_once __DIR__ . "/inc/header.php";
 ?>
 
 <main>
-    <section class="hero-video">
-
-    </section>
+  <!--   <section class="hero-video">
+    <img  src="/images/main-video.gif" alt="Description of the animation">
+    </section> -->
 
     <section class="hero">
         <img class="hero_decoration" src="images/main-recipe-img/cocoa-branch.png" alt="">
@@ -18,7 +18,7 @@ require_once __DIR__ . "/inc/header.php";
                 <a class="hero-link" href="">Découvrez nos recttes</a>
             </div>
             <div class="hero-img">
-                <img src="images/main-recipe-img/main_orange.png" alt="">
+                <img src="images/main-recipe-img/orange.png" alt="">
             </div>
         </div>
 
