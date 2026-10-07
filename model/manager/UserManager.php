@@ -38,4 +38,4 @@ public function createUser(UserMapping $user): bool
             $stmt->bindValue(':generated_key',$user->getGeneratedKey());
             return $stmt->execute();
 }
-}
+} 

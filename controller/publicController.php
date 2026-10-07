@@ -5,6 +5,7 @@ use model\manager\RecipeManager;
 use model\manager\IngredientsManager;
 use model\manager\StepsManager;
 use model\manager\UserManager;
+use model\manager\MailManager;
 $recipeManager = new RecipeManager($connectPDO);
 $ingredientsManager = new IngredientsManager($connectPDO);
 $stepsPrepManager=new StepsManager($connectPDO);
@@ -56,18 +57,20 @@ elseif ($page === 'inscription') {
             'email' => $email,
             'password_hash' => $passwordHash,
             'generated_key' => ''
-    
         ]);
-       
-
-    if ($userManager->createUser($user)) {
-        $success = true;
+       /*  if ($userManager->createUser($user)) {
+                $mailManager = new MailManager();
+            $mailManager->sendVerificationEmail(
+                $email,
+                $user->getGeneratedKey()
+            ); */
+    
+            $success = true;
+        }
     }
-    }
-    }
-
     require_once RACINE_PATH. '/view/inscription.php';
-}
+    }
+
 elseif ($page === 'recetteDetails') {
 
     if (!isset($_GET['slug'])) {
