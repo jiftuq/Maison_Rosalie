@@ -371,8 +371,9 @@ justify-content: space-between;
 }
 
 .hero-title {
-  max-width: 700px;
+  max-width: 710px;
   font-family: 'Monarque', Georgia, serif;
+  font-style: italic;
   font-weight:700;
   font-size: 63px;
   line-height: 1.35;
