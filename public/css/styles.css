@@ -12,14 +12,13 @@
 
 html {
   scroll-behavior: smooth;
-  background: white;
+  background-color: var(--bg-main);
 }
+
 body {
   min-height: 100vh;
   line-height: 1.5;
   background-color: var(--bg-main);
-  max-width: 1440px;
-  margin-inline: auto;
 }
 img,
 picture,
@@ -338,6 +337,7 @@ justify-content: space-between;
 .hero {
   position: relative;
   overflow: hidden;
+  padding: 0 50px;
 }
 
 .hero .container {
@@ -373,7 +373,8 @@ justify-content: space-between;
 .hero-title {
   max-width: 700px;
   font-family: 'Monarque', Georgia, serif;
-  font-size: 64px;
+  font-weight:700;
+  font-size: 63px;
   line-height: 1.35;
   color: var(--text-primary);
 }
@@ -429,7 +430,10 @@ justify-content: space-between;
   max-width: 100%;
   height: auto;
 }
-
+.top-recipes{
+  height: 120px;
+  background-color: var(--bg-main);
+}
 /* ---------- TABLET ---------- */
 
 @media screen and (max-width: 1024px) {
@@ -545,7 +549,11 @@ justify-content: space-between;
     width: 120px;
   }
 }
-
+.video{
+  display: block;
+  width: 100%;
+  height: auto;
+}
 /*-------FOOTER------------*/
 .footer {
   padding-block: 32px;
@@ -1200,8 +1208,18 @@ padding-top: 10px;
 
 .recipe-title {
   margin: 0;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 74px;
+  font-family: 'Monarque', Georgia, serif;
+  font-size: 72px;
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -3px;
+  color: var(--text-primary);
+}
+
+.card-flavor {
+  margin: 0;
+  font-family: 'Monarque', Georgia, serif;
+  font-size: 72px;
   line-height: 1.08;
   font-weight: 400;
   letter-spacing: -3px;
@@ -1274,6 +1292,10 @@ padding-top: 10px;
 }
 .section-title{
   font-size: 32px;
+  font-family: 'Monarque', Georgia, serif;
+  font-weight: 700;
+  color: var(--text-primary);
+
 }
 .line{
   margin: 0 0 50px 0;
@@ -1311,6 +1333,25 @@ row-gap: 30px;
   align-items: center;
   gap: 27px;
 }
+.recipe-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin-top: 50px;
+}
+.recipe-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.recipe-detail-desc{
+  color: var(--text-primary);
+  font-family: 'Monarque', Georgia, serif;
+  font-weight: 700;
+}
+
 /* --------------Steps------------- */
 .preparation {
   display: grid;

@@ -3,13 +3,12 @@ require_once __DIR__ . "/inc/header.php";
 ?>
 
 <main>
-    <!--   <section class="hero-video">
-    <img  src="/images/main-video.gif" alt="Description of the animation">
-    </section> -->
+     
 
     <section class="hero">
         <!--      <img class="hero_decoration" src="images/main-recipe-img/cocoa-branch.png" alt=""> -->
         <div class="container">
+        
             <div class="hero-text">
                 <h1 class="hero-title">
                     Nos créations,<br>
@@ -24,8 +23,12 @@ require_once __DIR__ . "/inc/header.php";
                 <img src="images/main-recipe-img/orange.png" alt="">
             </div>
         </div>
+    </section>
+    <section class="top-recipes">
 
-
+    </section>
+     <section class="hero-video">
+    <img class="video" src="/images/main-video.gif" alt="Description of the animation">
     </section>
 </main>
 <?php
