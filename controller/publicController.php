@@ -37,6 +37,7 @@ elseif ($page === 'inscription') {
     $username = trim($_POST['username'] ?? '');
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
+    $passwordConfirm = $_POST['password_confirm'] ?? '';
     if ($userManager->emailOrUsernameExists($email, $username)) {
         $errors[] = "Email ou nom d'utilisateur existe déjà";
     }
@@ -49,6 +50,9 @@ elseif ($page === 'inscription') {
     if (empty($password) || strlen($password) < 8) {
         $errors[] = "Le mot de passe doit contenir au moins 8 caractères";
     }
+    if ($password !== $passwordConfirm) {
+        $errors[] = "Les mots de passe ne correspondent pas";
+    }
     if (empty($errors)) {
 
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
@@ -58,6 +62,7 @@ elseif ($page === 'inscription') {
             'password_hash' => $passwordHash,
             'generated_key' => ''
         ]);
+        $userManager->createUser($user);
        /*  if ($userManager->createUser($user)) {
                 $mailManager = new MailManager();
             $mailManager->sendVerificationEmail(
