@@ -3,19 +3,22 @@ require_once __DIR__ . "/inc/header.php";
 ?>
 
 <main>
-  <!--   <section class="hero-video">
+    <!--   <section class="hero-video">
     <img  src="/images/main-video.gif" alt="Description of the animation">
     </section> -->
 
     <section class="hero">
-        <img class="hero_decoration" src="images/main-recipe-img/cocoa-branch.png" alt="">
+        <!--      <img class="hero_decoration" src="images/main-recipe-img/cocoa-branch.png" alt=""> -->
         <div class="container">
             <div class="hero-text">
-                <h2 class="hero-title">Nos créations,pour vos moments ! </h2>
+                <h1 class="hero-title">
+                    Nos créations,<br>
+                    pour vos moments !
+                </h1>
                 <p class="hero-subtitle">Découvrez nos nouvelle recettes. Une création printanière inspirée des fruits
                     confits. Des saveurs délicates, imaginées pour surprendre.
                 </p>
-                <a class="hero-link" href="">Découvrez nos recttes</a>
+                <a class="hero-link" href="?page=recettes">Découvrez nos recttes</a>
             </div>
             <div class="hero-img">
                 <img src="images/main-recipe-img/orange.png" alt="">
