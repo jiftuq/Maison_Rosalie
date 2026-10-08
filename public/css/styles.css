@@ -64,6 +64,10 @@ a {
   /* Backgroubds */
   --bg-main: rgba(250, 243, 227, 1);
   --bg-dark-brown: rgba(67, 34, 5, 1);
+  --color-orange: #ed6e00;
+  --font-display: "Bodoni Moda", "Monarque", serif;
+  --font-body: "Josefin Sans", sans-serif;
+  --font-ui: "Abhaya Libre", serif;
 
   /* Typography Colors */
   --text-primary: var(--bg-dark-brown);
@@ -166,6 +170,21 @@ justify-content: space-between;
   fill: var(--text-secondary);
 }
 
+/* Icône contact (akar-icons:info) : tracé orange, remplace le lien texte « Contact » */
+.icon-stroke {
+  fill: none;
+  stroke: var(--color-orange);
+  stroke-width: 2.67;
+  transition: stroke 0.2s ease;
+}
+
+.nav-brand a:hover .icon-stroke,
+.nav-brand a:focus-visible .icon-stroke,
+.nav-contact[aria-current="page"] .icon-stroke {
+  fill: none;
+  stroke: var(--bg-dark-brown);
+}
+
 .nav-list {
   display: flex;
   align-items: center;
@@ -176,6 +195,7 @@ justify-content: space-between;
   padding: 0;
 }
 .nav-link {
+  white-space: nowrap;
   position: relative;
   display: inline-block;
   color: var(--text-primary);
@@ -575,7 +595,7 @@ justify-content: space-between;
 .footer-logo {
   display: block;
   flex-shrink: 0;
-  width: 40px;
+  width: 52px;
 }
 
 .footer-logo img {
@@ -1414,4 +1434,1017 @@ row-gap: 30px;
 .step-desc{
   color: var(--text-primary);
   font-size: 20px;
+}
+
+
+/*-------ACCUEIL : créations & bannière atelier------------*/
+.creations {
+  padding: 60px 24px 80px;
+  text-align: center;
+  background-color: var(--bg-main);
+}
+
+.creations-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(22px, 2.2vw, 32px);
+  text-transform: uppercase;
+  color: var(--color-orange);
+}
+
+.creations-subtitle {
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 24px;
+  color: var(--text-primary);
+}
+
+.creations-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 32px 24px;
+  max-width: 1200px;
+  margin: 56px auto 0;
+  align-items: end;
+}
+
+.creations-item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  color: var(--text-primary);
+}
+
+.creations-item img {
+  width: auto;
+  height: 220px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.creations-item a:hover img,
+.creations-item a:focus-visible img {
+  transform: translateY(-6px);
+}
+
+.creations-name {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.creations-empty {
+  margin-top: 40px;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+}
+
+.atelier-banner {
+  position: relative;
+  line-height: 0;
+}
+
+.atelier-banner img {
+  width: 100%;
+  height: clamp(280px, 56vw, 810px);
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .hero-img { transform: rotate(-15deg); width: min(70%, 320px); }
+  .hero-link { font-size: 24px; }
+  .hero-subtitle { font-size: 18px; }
+  .creations-item img { height: 160px; }
+}
+
+
+/* ---------- AVIS DE GOURMANDS (page recette) ---------- */
+.reviews {
+  --review-card: #c47a3c;
+  --review-field: #ee9a52;
+  margin-block: 40px 60px;
+  padding-block: 50px 60px;
+  background-color: var(--bg-dark-brown);
+  color: var(--bg-main);
+}
+
+.reviews-top {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(0, 2.2fr);
+  align-items: center;
+  gap: 40px;
+}
+
+.reviews-title {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--color-orange);
+}
+
+.reviews-subtitle {
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.reviews-score {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 18px;
+}
+
+.reviews-average {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1;
+}
+
+.reviews-count {
+  margin-top: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+}
+
+/* étoiles d'affichage : remplies selon --rating (0 à 5), demi-étoiles comprises */
+.stars {
+  --percent: calc(var(--rating, 0) / 5 * 100%);
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+
+.stars::before {
+  content: "★★★★★";
+  background: linear-gradient(90deg, var(--color-orange) var(--percent), rgba(237, 110, 0, 0.25) var(--percent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stars-lg {
+  font-size: 30px;
+  letter-spacing: 4px;
+}
+
+/* carte « Laisser un avis » */
+.review-card {
+  padding: 22px 28px;
+  border-radius: 28px;
+  background-color: var(--review-card);
+}
+
+.review-form-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.review-pen {
+  flex-shrink: 0;
+  color: var(--bg-main);
+}
+
+.review-form-title {
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* étoiles de saisie : ordre inversé dans le HTML pour colorer les étoiles précédentes */
+.star-input {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 6px;
+  margin-left: auto;
+  border: 0;
+}
+
+.star-input input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.star-input label {
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--bg-main);
+  transition: transform 0.15s ease;
+}
+
+.star-input label::before {
+  content: "☆";
+}
+
+.star-input input:checked ~ label::before,
+.star-input label:hover::before,
+.star-input label:hover ~ label::before {
+  content: "★";
+}
+
+.star-input label:hover {
+  transform: scale(1.12);
+}
+
+.star-input input:focus-visible + label {
+  outline: 2px solid var(--bg-main);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.review-form-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
+  align-items: start;
+  gap: 20px;
+  margin-top: 14px;
+}
+
+.review-form-hint {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.review-form-field {
+  position: relative;
+}
+
+.review-form-field textarea {
+  display: block;
+  width: 100%;
+  min-height: 96px;
+  padding: 14px 18px 52px;
+  border: 0;
+  border-radius: 22px;
+  background-color: var(--review-field);
+  color: var(--bg-dark-brown);
+  font-family: var(--font-body);
+  font-size: 15px;
+  resize: vertical;
+}
+
+.review-form-field textarea::placeholder {
+  color: var(--bg-dark-brown);
+  opacity: 0.75;
+}
+
+.review-form-field textarea:focus-visible {
+  outline: 2px solid var(--bg-main);
+  outline-offset: 2px;
+}
+
+.review-submit {
+  padding: 6px 28px;
+  border-radius: 4px;
+  background-color: var(--bg-dark-brown);
+  color: var(--bg-main);
+  font-family: var(--font-body);
+  font-size: 15px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.review-form-field .review-submit {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+}
+
+.review-submit:hover,
+.review-submit:focus-visible {
+  background-color: var(--color-orange);
+}
+
+.review-login {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 14px;
+}
+
+.review-alert {
+  margin-top: 14px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background-color: var(--bg-main);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.review-alert--success {
+  color: #2f6b2f;
+}
+
+.review-alert--error {
+  color: #9b2c2c;
+}
+
+/* cartes des commentaires */
+.review-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: 45px auto 0;
+}
+
+.review-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 18px 18px;
+  border-radius: 10px;
+  background-color: var(--bg-main);
+  color: var(--bg-dark-brown);
+}
+
+.review-item-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.review-author {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.review-date {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.review-message {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.reviews-empty {
+  margin-top: 40px;
+  font-family: var(--font-body);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .reviews-top,
+  .review-form-body {
+    grid-template-columns: 1fr;
+  }
+
+  .review-form-head {
+    flex-wrap: wrap;
+  }
+
+  .star-input {
+    margin-left: 0;
+  }
+
+  .review-login {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .review-list {
+    gap: 20px;
+  }
+}
+
+
+/* =====================================================================
+   RESPONSIVE — maquette Figma mobile (412 px, nœud 752:1887)
+   Tout est dans des media queries : le desktop n'est pas modifié.
+   ===================================================================== */
+
+/* ---------- HEADER : icônes + liens visibles, sans menu burger ---------- */
+@media (max-width: 900px) {
+  .header {
+    padding-block: 12px 8px;
+  }
+
+  .header .container {
+    align-items: center;
+  }
+
+  .logo {
+    width: clamp(120px, 40vw, 190px);
+    max-width: none;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    height: auto;
+    margin-top: 0;
+  }
+
+  .nav-brand {
+    gap: 18px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-list,
+  .nav-list.is-open {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    width: auto;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .nav-item {
+    width: auto;
+  }
+
+  .nav-link {
+    display: inline-block;
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .nav-link::before {
+    bottom: -3px;
+  }
+}
+
+@media (max-width: 380px) {
+  .logo {
+    width: 112px;
+  }
+
+  .nav-list,
+  .nav-list.is-open {
+    gap: 10px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+}
+
+/* ---------- FOOTER : une seule ligne compacte, comme la maquette ---------- */
+@media (max-width: 768px) {
+  .footer {
+    padding-block: 18px;
+  }
+
+  .footer .container {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    padding-inline: 16px;
+  }
+
+  .footer-logo {
+    width: 26px;
+  }
+
+  .footer-col {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .footer-title {
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+
+  .footer-list {
+    gap: 2px;
+    padding-left: 12px;
+  }
+
+  .footer-list li {
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .footer-link {
+    font-size: 11px;
+    overflow-wrap: anywhere;
+  }
+
+  .footer-social {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-social-link svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ---------- ACCUEIL : texte à gauche, praliné à droite ---------- */
+@media (max-width: 768px) {
+  .hero {
+    padding: 0;
+  }
+
+  .hero .container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 34%;
+    align-items: center;
+    gap: 8px;
+    min-height: 0;
+    padding-block: 24px 32px;
+  }
+
+  .hero-text {
+    gap: 12px;
+    padding-left: 0;
+  }
+
+  .hero-title {
+    font-size: clamp(20px, 5.4vw, 40px);
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .hero-link {
+    width: auto;
+    padding: 6px 20px;
+    font-size: 15px;
+  }
+
+  .hero-img {
+    width: 100%;
+    transform: none;
+  }
+
+  .hero-img img {
+    width: 100%;
+    height: auto;
+  }
+
+  .top-recipes {
+    height: 32px;
+  }
+}
+
+/* ---------- À PROPOS : fond uni, texte centré ---------- */
+@media (max-width: 768px) {
+  .apropos_hero {
+    padding: 32px 24px 80px;
+    background-image: none;
+  }
+
+  .apropos_hero::before {
+    display: none;
+  }
+
+  .apropos_subtitle {
+    margin-bottom: 28px;
+    font-size: 20px;
+  }
+
+  .apropos_hero .hero_description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+/* ---------- LISTE DES RECETTES ---------- */
+@media (max-width: 1100px) {
+  .card-title,
+  .card-recipe .card-flavor {
+    font-size: clamp(40px, 5vw, 56px);
+    letter-spacing: -1px;
+  }
+}
+
+@media (max-width: 900px) {
+  .card-title,
+  .card-recipe .card-flavor {
+    font-size: clamp(40px, 9vw, 56px);
+  }
+}
+
+@media (max-width: 600px) {
+  .recipes {
+    gap: 48px;
+    margin-block: 24px 48px;
+  }
+
+  .card-heading {
+    margin-bottom: 12px;
+  }
+
+  .card-img {
+    height: 200px;
+  }
+
+  .card-recipe:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .card-arrow {
+    display: block;
+    margin-top: 16px;
+    color: var(--text-primary);
+    font-size: 28px;
+    line-height: 1;
+  }
+}
+
+/* ---------- DÉTAIL RECETTE ---------- */
+@media (max-width: 1100px) {
+  /* titre + praliné en haut, description, puis les deux photos côte à côte */
+  .recipe-grid {
+    grid-template-columns: minmax(0, 1fr) 38%;
+    grid-template-areas:
+      "title  main"
+      "flavor main"
+      "text   text"
+      "inside choco";
+    column-gap: 16px;
+    align-items: center;
+  }
+
+  .recipe-info,
+  .recipe-content {
+    display: contents;
+  }
+
+  .recipe-content::before {
+    display: none;
+  }
+
+  .recipe-title {
+    grid-area: title;
+    align-self: end;
+  }
+
+  .recipe-grid .card-flavor {
+    grid-area: flavor;
+    align-self: start;
+  }
+
+  .recipe-title,
+  .recipe-grid .card-flavor {
+    font-size: clamp(40px, 9vw, 72px);
+    letter-spacing: -1px;
+  }
+
+  .recipe-main {
+    grid-area: main;
+    min-height: 0;
+  }
+
+  .recipe-text {
+    grid-area: text;
+    max-width: none;
+    margin-top: 24px;
+    font-family: var(--font-body);
+    font-size: clamp(14px, 2.2vw, 18px);
+    line-height: 1.3;
+  }
+
+  .recipe-inside-img {
+    grid-area: inside;
+    margin: 16px 0 0;
+  }
+
+  .recipe-chocolate-img {
+    grid-area: choco;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    margin-top: 16px;
+  }
+
+  /* ingrédients : 2 colonnes souples */
+  .ingredients {
+    grid-template-columns: repeat(2, minmax(0, 383px));
+    column-gap: 16px;
+  }
+
+  /* préparation : une étape par ligne, photo à droite puis à gauche */
+  .preparation {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(96px, 26vw, 220px);
+    grid-template-areas:
+      "num  img"
+      "desc img";
+    grid-template-rows: auto 1fr;
+    column-gap: 16px;
+    row-gap: 6px;
+  }
+
+  .steps:nth-child(even) {
+    grid-template-columns: clamp(96px, 26vw, 220px) minmax(0, 1fr);
+    grid-template-areas:
+      "img num"
+      "img desc";
+  }
+
+  .step-num {
+    grid-area: num;
+  }
+
+  .step-desc {
+    grid-area: desc;
+  }
+
+  .steps img {
+    grid-area: img;
+    height: auto;
+    aspect-ratio: 1;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 22px;
+  }
+
+  .line {
+    margin-bottom: 24px;
+  }
+
+  .line .svg,
+  .line .bowl-svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .ingredients {
+    row-gap: 14px;
+  }
+
+  .card {
+    gap: 10px;
+  }
+
+  .ingredients .card img {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    object-fit: cover;
+    border: 1px solid var(--bg-dark-brown);
+  }
+
+  .ingredients .card p {
+    font-size: 13px;
+    line-height: 1.25;
+    color: var(--text-primary);
+  }
+
+  .step-num {
+    font-size: 15px;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .recipe-details {
+    gap: 48px;
+    margin-top: 36px;
+  }
+
+  .recipe-detail img {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ---------- AVIS : formulaire en « pilule », commentaires en carrousel ---------- */
+@media (max-width: 768px) {
+  .reviews {
+    margin-block: 24px 40px;
+    padding-block: 32px 36px;
+  }
+
+  .reviews-title {
+    font-size: 24px;
+  }
+
+  .reviews-subtitle {
+    font-size: 14px;
+  }
+
+  .reviews-average {
+    font-size: 30px;
+  }
+
+  .stars-lg {
+    font-size: 24px;
+    letter-spacing: 3px;
+  }
+
+  .review-card {
+    padding: 16px 18px;
+    border-radius: 22px;
+  }
+
+  .review-form-head {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .review-form-title {
+    font-size: 19px;
+    white-space: nowrap;
+  }
+
+  .star-input {
+    gap: 2px;
+    margin-left: auto;
+  }
+
+  .star-input label {
+    font-size: 22px;
+  }
+
+  .review-form-body {
+    gap: 10px;
+  }
+
+  .review-form-hint {
+    font-size: 12px;
+  }
+
+  .review-form-field textarea {
+    min-height: 52px;
+    padding: 15px 110px 15px 18px;
+    border-radius: 26px;
+  }
+
+  .review-form-field .review-submit {
+    top: 50%;
+    bottom: auto;
+    right: 8px;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transform: translateY(-50%);
+  }
+
+  /* cartes côte à côte, défilement horizontal */
+  .review-list {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-bottom: 6px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+
+  .review-item {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+  }
+
+  .review-message {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .review-form-head {
+    flex-wrap: wrap;
+  }
+
+  .star-input {
+    margin-left: 0;
+  }
+}
+
+/* ---------- CONTACT : fond uni, coordonnées en lignes ---------- */
+@media (max-width: 768px) {
+  .contact {
+    background-image: none;
+  }
+
+  .contact::before {
+    display: none;
+  }
+
+  .contact-intro {
+    padding-block: 24px 28px;
+  }
+
+  .contact-title {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .contact-lead {
+    gap: 14px;
+  }
+
+  .contact-question {
+    font-size: 19px;
+  }
+
+  .contact-text {
+    padding: 16px 0 0;
+    border-left: 0;
+    position: relative;
+  }
+
+  .contact-text::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 1px;
+    background: var(--text-primary);
+  }
+
+  .contact-info {
+    background-color: rgba(255, 255, 255, 0.35);
+  }
+
+  .contact-info-list {
+    gap: 14px;
+    text-align: left;
+  }
+
+  .contact-info-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .contact-info-icon {
+    flex-shrink: 0;
+  }
+
+  .contact-form-title {
+    font-size: 22px;
+  }
+
+  .contact-textarea {
+    min-height: 150px;
+  }
+
+  .contact-submit {
+    min-width: 0;
+  }
+}
+
+/* ---------- INSCRIPTION ---------- */
+@media (max-width: 768px) {
+  .register {
+    margin: 24px auto 64px;
+  }
+
+  .register-title {
+    font-size: 28px;
+    text-align: left;
+  }
+
+  .register-form input {
+    height: 42px;
+  }
+
+  .register-submit {
+    background: var(--bg-dark-brown);
+  }
 }

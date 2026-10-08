@@ -20,7 +20,9 @@
 
   <!-- ============================ -->
 
-  <title>Document</title>
+  <title>Maison Rosalie – Le livre de recettes au chocolat</title>
+  <meta name="description" content="Maison Rosalie, chocolaterie belge depuis 1987 : découvrez nos recettes de chocolat pas à pas.">
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -28,7 +30,7 @@
     <div class="container">
 
       <div class="logo-wrap">
-        <a class="logo" href="/"><img src="images/logo/horiz-logo.png" alt="Maison Rasolie"></a>
+        <a class="logo" href="/"><img src="images/figma/logo-mr.png" alt="Maison Rosalie"></a>
       </div>
 
       <nav class="navbar">
@@ -82,6 +84,13 @@
                   d="M8 2h8a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v3h4V4H8zm5 0v4h4V5a1 1 0 0 0-1-1h-3zM7 10v4h4v-4H7zm6 0v4h4v-4h-4zM7 16v3a1 1 0 0 0 1 1h3v-4H7zm6 0v4h3a1 1 0 0 0 1-1v-3h-4z" />
               </svg>
             </a>
+            <a class="nav-contact" href="?page=contact" aria-label="Contact" title="Contact"<?= ($page ?? '') === 'contact' ? ' aria-current="page"' : '' ?>>
+              <svg class="icon icon-stroke" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 29.33 29.33" aria-hidden="true">
+                <path d="M14.67 28c7.36 0 13.33-5.97 13.33-13.33S22.03 1.33 14.67 1.33 1.33 7.3 1.33 14.67 7.3 28 14.67 28Z" />
+                <path d="M14.67 8h.01" stroke-linecap="round" />
+                <path d="M12 13.33h2.67V20M12 20h5.33" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
           </div>
 
           <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"
@@ -101,7 +110,6 @@
           </li>
           <li class="nav_item"><a class="nav-link" href="?page=apropos">À propos</a></li>
 
-          <li class="nav_item"><a class="nav-link" href="?page=contact">Contact</a></li>
         </ul>
       </nav>
     </div>

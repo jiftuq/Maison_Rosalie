@@ -1,5 +1,14 @@
 <?php
 require_once __DIR__ . "/inc/header.php";
+
+// Image du praliné : version Figma optimisée si elle existe, sinon la vignette de la carte
+function pralineImage(string $mainImage): string
+{
+    $name = pathinfo($mainImage, PATHINFO_FILENAME);
+    return file_exists(RACINE_PATH . "/public/images/figma/$name.webp")
+        ? "images/figma/$name.webp"
+        : "images/cards/$mainImage";
+}
 ?>
 
 <main>
@@ -20,7 +29,7 @@ require_once __DIR__ . "/inc/header.php";
                 <a class="hero-link" href="?page=recettes">Découvrez nos recttes</a>
             </div>
             <div class="hero-img">
-                <img src="images/main-recipe-img/orange.png" alt="">
+                <img src="images/figma/orange.webp" width="600" height="647" alt="Praliné à l'orange glacé, décoré d'une feuille et d'un zeste confit">
             </div>
         </div>
     </section>
