@@ -528,6 +528,9 @@ justify-content: space-between;
 }
 /*-------FOOTER------------*/
 .footer {
+  /* body est en flex colonne : le footer reste collé en bas même si la page est courte */
+  flex-shrink: 0;
+  margin-top: auto;
   padding-block: 32px;
   background-color: var(--bg-dark-brown);
   color: var(--color-light-white);
@@ -800,6 +803,7 @@ justify-content: space-between;
 
 /* ---------- INSCRIPTION ---------- */
 .register {
+  width: 100%; /* body en flex : sans ça, le formulaire se rétrécit */
   max-width: 420px;
   margin: 60px auto 100px;
   padding-inline: 24px;

@@ -86,9 +86,9 @@
             </a>
             <a class="nav-contact" href="?page=contact" aria-label="Contact" title="Contact"<?= ($page ?? '') === 'contact' ? ' aria-current="page"' : '' ?>>
               <svg class="icon icon-stroke" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 29.33 29.33" aria-hidden="true">
-                <path d="M14.67 28c7.36 0 13.33-5.97 13.33-13.33S22.03 1.33 14.67 1.33 1.33 7.3 1.33 14.67 7.3 28 14.67 28Z" />
-                <path d="M14.67 8h.01" stroke-linecap="round" />
-                <path d="M12 13.33h2.67V20M12 20h5.33" stroke-linecap="round" stroke-linejoin="round" />
+                <!-- enveloppe (e-mail) -->
+                <rect x="2.67" y="6" width="24" height="17.33" rx="2.67" />
+                <path d="m3.33 7.33 11.34 8.67 11.33-8.67" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </a>
           </div>
