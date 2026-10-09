@@ -33,8 +33,21 @@ function pralineImage(string $mainImage): string
             </div>
         </div>
     </section>
-    <section class="top-recipes">
-
+    <section class="top-recipes-section">
+<div class="top-recipes">
+    <div>
+        <img src="images/cards/orange.png" alt="">
+        <p></p>
+    </div>
+    <div >
+        <img src="images/cards/orange.png" alt="">
+        <p></p>
+    </div>
+    <div >
+        <img src="images/cards/orange.png" alt="">
+        <p></p>
+    </div>
+</div>
     </section>
      <section class="hero-video">
     <img class="video" src="/images/main-video.gif" alt="Description of the animation">
