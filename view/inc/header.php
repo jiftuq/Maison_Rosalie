@@ -45,11 +45,28 @@
             </button>
 
             <!-- Panneau connexion -->
-            <div class="login-panel" id="login-panel">
-              <p class="login-title">Connexion</p>
+            <?php
+            // message d'erreur de connexion (affiché une seule fois) : le panneau s'ouvre tout seul
+            $loginError = $_SESSION['login_error'] ?? null;
+            $loginEmailValue = $_SESSION['login_email'] ?? '';
+            unset($_SESSION['login_error'], $_SESSION['login_email']);
+            ?>
+            <div class="login-panel<?= $loginError ? ' is-open' : '' ?>" id="login-panel">
+            <?php if (isset($_SESSION['user_id'])): ?>
+              <p class="login-title">Bonjour, <?= htmlspecialchars($_SESSION['username'] ?? '') ?></p>
               <form class="login-form" method="post" action="">
+                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
+                <button class="login-submit" type="submit" name="logout_submit" value="1">Se déconnecter</button>
+              </form>
+            <?php else: ?>
+              <p class="login-title">Connexion</p>
+              <?php if ($loginError): ?>
+                <p class="login-error" role="alert"><?= htmlspecialchars($loginError) ?></p>
+              <?php endif; ?>
+              <form class="login-form" method="post" action="">
+                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
                 <label for="login-email">E-mail</label>
-                <input type="email" id="login-email" name="email" required>
+                <input type="email" id="login-email" name="email" value="<?= htmlspecialchars($loginEmailValue) ?>" required>
                 <label for="login-password">Mot de passe</label>
                 <input type="password" id="login-password" name="password" required>
 
@@ -60,7 +77,7 @@
                   <a href="#">Mot De Passe Oublié</a>
                 </div>
 
-                <button class="login-submit" type="submit">Login</button>
+                <button class="login-submit" type="submit" name="login_submit" value="1">Login</button>
               </form>
 
               <div class="login-social">
@@ -76,6 +93,7 @@
 
               <p class="login-or">ou</p>
               <a class="login-register" href="?page=inscription">Crée un compte</a>
+            <?php endif; ?>
             </div>
             </div>
             <a href="?page=recettes">
