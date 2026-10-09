@@ -172,19 +172,31 @@ justify-content: space-between;
   fill: var(--text-secondary);
 }
 
-/* Icône contact (akar-icons:info) : tracé orange, remplace le lien texte « Contact » */
+/* Icône contact (enveloppe) : contour orange */
 .icon-stroke {
   fill: none;
   stroke: var(--color-orange);
   stroke-width: 2.67;
-  transition: stroke 0.2s ease;
 }
 
-.nav-brand a:hover .icon-stroke,
-.nav-brand a:focus-visible .icon-stroke,
-.nav-contact[aria-current="page"] .icon-stroke {
-  fill: none;
-  stroke: var(--bg-dark-brown);
+.icon-stroke rect,
+.icon-stroke path {
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+/* survol / focus / page Contact : couleurs inversées
+   (enveloppe pleine orange, rabat couleur du fond) */
+.nav-brand a:hover .icon-stroke rect,
+.nav-brand a:focus-visible .icon-stroke rect,
+.nav-contact[aria-current="page"] .icon-stroke rect {
+  fill: var(--color-orange);
+  stroke: var(--color-orange);
+}
+
+.nav-brand a:hover .icon-stroke path,
+.nav-brand a:focus-visible .icon-stroke path,
+.nav-contact[aria-current="page"] .icon-stroke path {
+  stroke: var(--bg-main);
 }
 
 .nav-list {
